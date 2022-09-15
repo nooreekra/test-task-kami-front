@@ -3,7 +3,7 @@ import { PriceByCityType, ProductType } from '../store/reducers/app-reducer';
 
 const instance = axios.create({
   withCredentials: true,
-  baseURL: 'http://localhost:7542/1.0/',
+  baseURL: 'http://195.49.212.94:7542/1.0/',
 });
 
 

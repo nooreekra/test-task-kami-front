@@ -4,7 +4,12 @@ import { AppThunkType } from "../store"
 
 const initialState: InitialStateType = {
     products: [] as ProductType[],
-    cities: [] as CityType[],
+    cities:  [
+        { "id": 1, "name": "Алматы" },
+        { "id": 2, "name": "Актобе" },
+        { "id": 3, "name": "Павлодар" },
+        { "id": 4, "name": "Нур-Султан" },
+    ],
     isLoading: false 
 }
 
@@ -151,10 +156,3 @@ export const getAllProductsTC = (t?: string): AppThunkType =>
         }
  };
 
-
- export const cities = [
-    { "id": 1, "name": "Алматы" },
-    { "id": 2, "name": "Актобе" },
-    { "id": 3, "name": "Павлодар" },
-    { "id": 4, "name": "Нур-Султан" },
-]

@@ -10,6 +10,7 @@ import DeleteIcon from '@mui/icons-material/Delete'
 import SearchIcon from '@mui/icons-material/Search';
 import { Link } from 'react-router-dom';
 import Records from './pagination/Records';
+import { ROUTES } from '../../App';
 
 export type PriceByCities = {
   [key: number]: number
@@ -22,10 +23,6 @@ export type Product = {
   description: string,
   status: boolean,
   price: PriceByCities | number
-}
-
-export enum ROUTES {
-  CREATE = '/products/create'
 }
 
 const DEFAULT_PAGE = 1;
@@ -42,14 +39,12 @@ export const Products = () => {
   }, [])
 
   const deleteProducts = () => {
-    //@ts-ignore
     dispatch(deleteProductTC(selected))
     setSelected([])
   }
 
 
   const inputHandler = (e: any) => {
-    //convert input text to lower case
     var lowerCase = e.target.value.toLowerCase();
     setInputText(lowerCase);
   };

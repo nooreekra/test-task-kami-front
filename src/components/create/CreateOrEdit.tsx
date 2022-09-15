@@ -19,7 +19,9 @@ import InputAdornment from '@mui/material/InputAdornment';
 import { useFormik } from 'formik';
 import { ProductAPI } from '../../api/api';
 import * as yup from 'yup';
-import { cities } from '../../store/reducers/app-reducer';
+import { CityType } from '../../store/reducers/app-reducer';
+import { ROUTES } from '../../App';
+import { useAppSelector } from '../../hooks/hooks';
 
 
 const converter = new Showdown.Converter({
@@ -30,11 +32,8 @@ const converter = new Showdown.Converter({
 });
 
 
-export enum ROUTES {
-  PRODUCTS = '/products'
-}
-
 export const CreateOrEdit = () => {
+  const cities: CityType[] = useAppSelector(state => state.app.cities)
   const [priceForAll, setPriceForAll] = useState(true)
   const [error, setError] = useState(false)
   const [value, setValue] = useState("");
@@ -72,6 +71,7 @@ export const CreateOrEdit = () => {
     2: uniquePrice,
     3: uniquePrice,
     4: uniquePrice,
+    description: yup.string().required('Поле описание обязательное')
   });
 
   const formik = useFormik({
@@ -158,14 +158,21 @@ export const CreateOrEdit = () => {
     setPictures(pictureDataURLs)
   }
 
-  const renderCounter  = useRef(0);
+  const renderCounter = useRef(0);
   renderCounter.current = renderCounter.current + 1;
 
   return (
     <div className={common.container}>
       <form onSubmit={formik.handleSubmit}>
         <div className={styles.header}>
-          <Link to={ROUTES.PRODUCTS}><Button variant="outlined" startIcon={<ArrowBackIcon />}>Назад</Button></Link>
+          <Link to={ROUTES.PRODUCTS}>
+            <Button
+              variant="outlined"
+              startIcon={<ArrowBackIcon />}
+            >
+              Назад
+            </Button>
+          </Link>
           <h3>Добавить товар</h3>
         </div>
         <div className={styles.content}>
@@ -197,6 +204,7 @@ export const CreateOrEdit = () => {
                   Promise.resolve(converter.makeHtml(markdown))
                 }
               />
+              {formik.touched.description && <p className={styles.errorText}>{formik.errors.description}</p>}
             </div>
             <div>
               <h4>Медиа</h4>
@@ -305,7 +313,7 @@ export const CreateOrEdit = () => {
             variant="contained"
             color="success"
             type="submit"
-            disabled={ params.id ? Boolean(renderCounter.current < 4) : false}
+            disabled={params.id ? Boolean(renderCounter.current < 4) : false}
           >
             Сохранить
           </Button>
