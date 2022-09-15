@@ -10,9 +10,11 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  <HashRouter>
+  <BrowserRouter>
     <Provider store={store}>
-      <App />
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
     </Provider>
-  </HashRouter>
+  </BrowserRouter>
 );
