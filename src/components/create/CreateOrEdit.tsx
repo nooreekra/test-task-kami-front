@@ -4,7 +4,7 @@ import Showdown from "showdown";
 import "react-mde/lib/styles/css/react-mde-all.css";
 import Button from '@mui/material/Button';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import { Link, Navigate, useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import styles from './create.module.scss'
 import common from '../../assets/scss/common.module.scss'
 import FormControl from '@mui/material/FormControl';
@@ -16,11 +16,10 @@ import ImageUploader from 'react-images-upload';
 import Checkbox from '@mui/material/Checkbox';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import InputAdornment from '@mui/material/InputAdornment';
-import { FormikBag, useFormik } from 'formik';
+import { useFormik } from 'formik';
 import { ProductAPI } from '../../api/api';
 import * as yup from 'yup';
-import { useAppSelector } from '../../hooks/hooks';
-import { cities, CityType } from '../../store/reducers/app-reducer';
+import { cities } from '../../store/reducers/app-reducer';
 
 
 const converter = new Showdown.Converter({

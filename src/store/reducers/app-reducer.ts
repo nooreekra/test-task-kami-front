@@ -8,26 +8,33 @@ const initialState: InitialStateType = {
     isLoading: false 
 }
 
+export enum CASES {
+    SETPRODUCTS = 'SET-PRODUCTS',
+    SETCITIES = 'SET-CITIES',
+    DELETEPRODUCTS = 'DELETE-PRODUCTS',
+    SETLOADER = 'SET-LOADER'
+  }
+  
 
 export type ActionsType = SetProductsActionType | SetCitiesActionType | DeleteProductsActionType | SetLoaderActionType
 
 export const appReducer = (state: InitialStateType = initialState, action: ActionsType): any => {
     switch (action.type) {
-        case 'SET-PRODUCTS': {
+        case CASES.SETPRODUCTS: {
             return {
                 ...state,
                 products: action.products
             }
         }
 
-        case 'SET-CITIES': {
+        case CASES.SETCITIES: {
             return {
                 ...state,
                 cities: action.cities
             }
         }
 
-        case 'DELETE-PRODUCTS': {
+        case CASES.DELETEPRODUCTS: {
            
             return {
                 ...state,
@@ -35,7 +42,7 @@ export const appReducer = (state: InitialStateType = initialState, action: Actio
             }
         }
 
-        case 'SET-LOADER': {
+        case CASES.SETLOADER: {
             return {
                 ...state,
                 isLoading: action.isLoading
@@ -78,22 +85,22 @@ type InitialStateType = {
 }
 
 export type SetProductsActionType = {
-    type: 'SET-PRODUCTS',
+    type: CASES.SETPRODUCTS,
     products: ProductType[]
 }
 
 export type SetCitiesActionType = {
-    type: 'SET-CITIES',
+    type: CASES.SETCITIES,
     cities: CityType
 }
 
 export type DeleteProductsActionType = {
-    type: 'DELETE-PRODUCTS',
+    type: CASES.DELETEPRODUCTS,
     ids: String[]
 }
 
 export type SetLoaderActionType = {
-    type: 'SET-LOADER',
+    type: CASES.SETLOADER,
     isLoading: boolean
 }
 
@@ -101,19 +108,19 @@ export type SetLoaderActionType = {
 
 
 export const setProductsAC = (products: ProductType[]): SetProductsActionType => {
-    return { type: 'SET-PRODUCTS', products }
+    return { type: CASES.SETPRODUCTS, products }
 }
 
 export const setCitiesAC = (cities: CityType): SetCitiesActionType => {
-    return { type: 'SET-CITIES', cities }
+    return { type: CASES.SETCITIES, cities }
 }
 
 export const deleteProductsAC = (ids: string[]): DeleteProductsActionType => {
-    return { type: 'DELETE-PRODUCTS', ids }
+    return { type: CASES.DELETEPRODUCTS, ids }
 }
 
 export const loadingRequestAC = (isLoading: boolean): SetLoaderActionType => {
-    return { type: 'SET-LOADER', isLoading }
+    return { type: CASES.SETLOADER, isLoading }
 }
 
 //TC

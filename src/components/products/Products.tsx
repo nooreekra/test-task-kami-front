@@ -1,11 +1,9 @@
-import React, { Dispatch, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './products.module.scss'
 import common from '../../assets/scss/common.module.scss'
 import { useDispatch, useSelector } from 'react-redux'
-import { AppDispatch, AppRootStateType } from '../../store/store';
 import { deleteProductTC, getAllProductsTC, LoaderType, ProductType } from '../../store/reducers/app-reducer';
-import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
-import ReactSearchBox from "react-search-box";
+import {  useAppSelector } from '../../hooks/hooks';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete'

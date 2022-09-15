@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styles from '../products.module.scss'
 import Checkbox from '@mui/material/Checkbox';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { LoaderType, ProductType } from '../../../store/reducers/app-reducer';
 import Pagination from './Pagination';
 import { useAppSelector } from '../../../hooks/hooks';
-import CircularProgress from '@mui/material/CircularProgress';
+
 import LinearProgress from '@mui/material/LinearProgress';
 
 type RecordsPropsType = {
