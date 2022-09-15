@@ -1,0 +1,89 @@
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+
+    .add {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        a {
+            text-decoration: none;
+        }
+    }
+
+    .searchbar {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin: 10px;
+        padding: 3.65px;
+
+        input {
+            width: 80%;
+            border-radius: 5px;
+            margin: 0 10px;
+        }
+    }
+
+    .deletebar {
+        width: 100%;
+        display: flex;
+        margin: 10px;
+        justify-content: space-around;
+        align-items: center;
+        background-color: black;
+        color: #fff;
+        border-radius: 5px;
+    }
+}
+
+.products {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    .table {
+
+        border-spacing: 0;
+        width: 100%;
+ 
+        .productRows {
+            &:hover {
+                background-color: rgba($color: #000000, $alpha: 0.2);
+                scale: 1.01;
+                cursor: pointer;
+            }
+        }
+
+        th {
+            text-align: left;
+            padding: 5px;
+            font-weight: 500;
+            border-bottom: 1px solid lightgray;
+        }
+        
+        td {
+            //text-align: center;
+            vertical-align: middle;
+            padding: 5px;
+            border-bottom: 1px solid lightgray;
+        }
+
+        img {
+            height: 50px;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+    }
+}
+
+.bold {
+    font-weight: 700;
+}

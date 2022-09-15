@@ -1,0 +1,40 @@
+.pagination {
+    position: fixed;
+    bottom: 0;
+    width: 80%;
+
+    ul {
+        display: flex;
+        justify-content: center;
+        li {
+            margin: 0 10px;
+            list-style: none;
+            padding: 10px;
+            background-color: rgba($color: #000000, $alpha: 0.3);
+            border-radius: 5px;
+            &:hover {
+                background-color: rgba($color: #000000, $alpha: 0.4); 
+            }
+        }
+    }
+
+    a{
+        color: black;
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+    .active {
+        font-weight: 700;
+        background-color: rgba($color: #000000, $alpha: 0.4);
+    }
+
+    .disabled {
+        cursor: default;
+        background-color: rgba($color: #000000, $alpha: 0.1);
+        color: gray;
+        &:hover {
+            background-color: rgba($color: #000000, $alpha: 0.1);
+        }
+    }
+}
